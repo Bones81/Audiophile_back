@@ -94,14 +94,15 @@ WSGI_APPLICATION = 'music_api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'music',
+        'NAME': 'audiophile',
         'USER': '',
         'PASSWORD': '',
         'HOST':'localhost'
     }
 }
 
-db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=True)
+db_from_env = dj_database_url.parse(config("DATABASE_URL"), conn_max_age=600)
+print(db_from_env)
 DATABASES['default'].update(db_from_env)
 
 # Password validation
