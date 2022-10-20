@@ -105,7 +105,7 @@ DATABASES = {
 }
 
 db_from_env = dj_database_url.parse(config("DATABASE_URL"), conn_max_age=600)
-print(db_from_env)
+# print(db_from_env)
 DATABASES['default'].update(db_from_env)
 
 # Password validation
